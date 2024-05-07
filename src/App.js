@@ -1,5 +1,5 @@
 import './App.css';
-import logo from './logo.svg' ;
+// import logo from './logo.svg' ;
 // import MyClock from './02/MyClock'; 
 import { RiHomeHeartFill } from "react-icons/ri";
 import MyDiv from './03/MyDiv'; 
@@ -12,9 +12,11 @@ function App() {
         <p><RiHomeHeartFill className='text-3xl text-green-900'/></p>
       </header>
       <main className='grow flex justify-center items-center'>
-        <div className='flex justify-center items-center w-1/3 h-1/2'>
+        {/* <div className='flex justify-center items-center w-1/3 h-1/2'>
           <img src={logo} alt="logo" />
-        </div>
+        </div> */}
+
+        <MyDiv />
       </main>
       <footer className='flex justify-center items-center h-20 bg-black text-slate-100'>
       ⓒ Kim Kyung Min , K-digital-7
