@@ -1,6 +1,11 @@
 import MyDiv2 from "./MyDiv2" ;
+//1. useState import
+import { useState } from "react";
 
 export default function MyDiv() {
+  //2. state변수 선언
+  const [n, setN] = useState(0);
+
   const dname1 = 'vdiv1' ;
   const dname2 = 'vdiv2' ;
   const dname3 = 'vdiv3' ;
@@ -8,6 +13,7 @@ export default function MyDiv() {
 
   const handleCount = () => {
     cnt = cnt + 1 ;
+    setN(n + 1) ;
     console.log("handleCount = " , cnt) ;
   }
 
@@ -23,7 +29,7 @@ export default function MyDiv() {
           ❤️
         </span>
         <span>
-          {cnt}
+          {n}
         </span>
       </div>                  
       <div className="w-full">

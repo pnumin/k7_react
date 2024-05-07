@@ -2,7 +2,8 @@ import './App.css';
 // import logo from './logo.svg' ;
 // import MyClock from './02/MyClock'; 
 import { RiHomeHeartFill } from "react-icons/ri";
-import MyDiv from './03/MyDiv'; 
+// import MyDiv from './03/MyDiv'; 
+import MyList from './04/MyList';
 
 function App() {
   return (
@@ -16,7 +17,8 @@ function App() {
           <img src={logo} alt="logo" />
         </div> */}
 
-        <MyDiv />
+        {/* <MyDiv /> */}
+        <MyList />
       </main>
       <footer className='flex justify-center items-center h-20 bg-black text-slate-100'>
       ⓒ Kim Kyung Min , K-digital-7
