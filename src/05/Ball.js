@@ -11,6 +11,7 @@ export default function Ball({n}) {
 
   return (
     <div className={`inline-flex w-16 h-16 
+                      mx-2
                       justify-center items-center 
                       rounded-full text-2xl font-bold 
                       ${colorN["b"+ Math.floor(n / 10)]}
