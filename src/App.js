@@ -4,7 +4,8 @@ import './App.css';
 import { RiHomeHeartFill } from "react-icons/ri";
 // import MyDiv from './03/MyDiv'; 
 // import MyList from './04/MyList';
-import Lotto from './05/Lotto';
+// import Lotto from './05/Lotto';
+import BoxOffice from './06/BoxOffice';
 
 function App() {
   return (
@@ -20,7 +21,8 @@ function App() {
 
         {/* <MyDiv /> */}
         {/* <MyList /> */}
-        <Lotto />
+        {/* <Lotto /> */}
+        <BoxOffice />
       </main>
       <footer className='flex justify-center items-center h-20 bg-black text-slate-100'>
       ⓒ Kim Kyung Min , K-digital-7

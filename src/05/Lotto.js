@@ -29,7 +29,7 @@ export default function Lotto() {
         {tags}
       </div>
       <div>
-        <ButtonC caption={'확인'} bcolor={'orange'} handleClick={handleOk} />
+        <ButtonC caption={'로또번호생성'} bcolor={'blue'} handleClick={handleOk} />
       </div>
     </div>
   )
