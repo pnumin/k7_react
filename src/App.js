@@ -14,7 +14,7 @@ function App() {
         <p>리액트 실습</p> 
         <p><RiHomeHeartFill className='text-3xl text-green-900'/></p>
       </header>
-      <main className='grow flex justify-center items-center'>
+      <main className='grow w-full flex justify-center items-center'>
         {/* <div className='flex justify-center items-center w-1/3 h-1/2'>
           <img src={logo} alt="logo" />
         </div> */}
