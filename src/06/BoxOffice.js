@@ -1,10 +1,19 @@
 import box from "./BoxOffice.json";
 import BoxOfficeThead from "./BoxOfficeThead";
 import BoxOfficeTbody from "./BoxOfficeTbody";
+import BoxOfficeInfo from "./BoxOfficeInfo";
+
+import { useState, useEffect } from "react";
 
 export default function BoxOffice() {
-  const dailyList = box.boxOfficeResult.dailyBoxOfficeList;
-  
+  const [dailyList , setDailyList] = useState([]);
+  const [selMv, setSelMv] = useState();
+
+  useEffect(() => {
+    setDailyList(box.boxOfficeResult.dailyBoxOfficeList);
+    setSelMv(dailyList[0]);
+  }, []);
+ 
   return (
     <div className="w-full h-full">
       <div className="w-full flex flex-col justify-start items-center mt-10">
@@ -13,6 +22,7 @@ export default function BoxOffice() {
           <BoxOfficeThead />
           <BoxOfficeTbody dailyList = {dailyList} />
         </table>
+        <BoxOfficeInfo selMv ={selMv} />
       </div>
     </div>
   )
