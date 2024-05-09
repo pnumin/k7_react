@@ -11,8 +11,11 @@ export default function BoxOffice() {
 
   useEffect(() => {
     setDailyList(box.boxOfficeResult.dailyBoxOfficeList);
-    setSelMv(dailyList[0]);
   }, []);
+
+  useEffect(() => {
+    setSelMv(dailyList[0]);
+  } , [dailyList]);
  
   return (
     <div className="w-full h-full">
@@ -20,9 +23,9 @@ export default function BoxOffice() {
         <table
           className="w-11/12 text-left text-sm font-light text-surface">
           <BoxOfficeThead />
-          <BoxOfficeTbody dailyList = {dailyList} />
+          <BoxOfficeTbody dailyList = {dailyList} setSelMv ={setSelMv} />
         </table>
-        <BoxOfficeInfo selMv ={selMv} />
+        {selMv && <BoxOfficeInfo selMv ={selMv} />}
       </div>
     </div>
   )

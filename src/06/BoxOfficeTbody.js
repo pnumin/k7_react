@@ -1,9 +1,14 @@
 import { AiFillCaretUp } from "react-icons/ai";
 import { AiFillCaretDown } from "react-icons/ai";
-export default function BoxOfficeTbody({ dailyList }) {
-  console.log(dailyList)
+export default function BoxOfficeTbody({ dailyList, setSelMv }) {
+  // console.log(dailyList)
+  const handleMvSelect = (mv) => {
+    // console.log("handleMvSelect", mv)
+    setSelMv(mv) ;
+  }
   const tags = dailyList.map(item =>
-    <tr
+    <tr key={item.movieCd} 
+        onClick={() => {handleMvSelect(item)} }
       className="border-b border-neutral-200 hover:bg-neutral-100 ">
       <td className="whitespace-nowrap px-6 py-2 font-medium">{item.rank}</td>
       <td className="whitespace-nowrap px-6 py-2">{item.movieNm}</td>
