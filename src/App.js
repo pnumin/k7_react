@@ -10,12 +10,12 @@ import FoodMain from  './07/FoodMain' ;
 
 function App() {
   return (
-    <div className="flex flex-col w-full max-w-screen-lg h-screen overflow-y-auto mx-auto">
+    <div className="flex flex-col w-full max-w-screen-lg h-screen mx-auto">
       <header className='flex justify-between items-center text-xl font-bold h-20 p-10 bg-slate-200'>
         <p>리액트 실습</p> 
         <p><RiHomeHeartFill className='text-3xl text-green-900'/></p>
       </header>
-      <main className='grow w-full flex justify-center items-center'>
+      <main className='grow w-full flex justify-center items-center overflow-y-auto '>
         {/* <div className='flex justify-center items-center w-1/3 h-1/2'>
           <img src={logo} alt="logo" />
         </div> */}
