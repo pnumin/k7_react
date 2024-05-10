@@ -1,11 +1,12 @@
 import './App.css';
 // import logo from './logo.svg' ;
-// import MyClock from './02/MyClock'; 
+import MyClock from './02/MyClock'; 
 import { RiHomeHeartFill } from "react-icons/ri";
 // import MyDiv from './03/MyDiv'; 
 // import MyList from './04/MyList';
 // import Lotto from './05/Lotto';
-import BoxOffice from './06/BoxOffice';
+// import BoxOffice from './06/BoxOffice';
+import FoodMain from  './07/FoodMain' ;
 
 function App() {
   return (
@@ -18,11 +19,12 @@ function App() {
         {/* <div className='flex justify-center items-center w-1/3 h-1/2'>
           <img src={logo} alt="logo" />
         </div> */}
-
+        {/* <MyClock /> */}
         {/* <MyDiv /> */}
         {/* <MyList /> */}
         {/* <Lotto /> */}
-        <BoxOffice />
+        {/* <BoxOffice /> */}
+        <FoodMain />
       </main>
       <footer className='flex justify-center items-center h-20 bg-black text-slate-100'>
       ⓒ Kim Kyung Min , K-digital-7
