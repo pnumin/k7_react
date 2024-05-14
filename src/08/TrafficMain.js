@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
+import ButtonC from "../UI/ButtonC" ;
 
 export default function TrafficMain() {
   const [tdata, setTdata] = useState([]) ;    //전체 fetch데이터
   const [c1, setC1] = useState() ;            //대분류
+  const [c1Tag, setC1Tag] = useState() ;      //대분류 버튼
   
   //fetch 함수로 데이터 가져오기
   const getFetchData = (url) => {
@@ -37,11 +39,22 @@ export default function TrafficMain() {
   useEffect(()=>{
     if (!c1) return ;
     console.log('c1=', c1) ;
+    let tm = c1.map((item) => <ButtonC caption = {item}
+                                       key={item}
+                                       bcolor = 'blue'
+                                       handleClick = {() => {}} />)
+    setC1Tag(tm) ;
   }, [c1]);
 
   return (
-    <div>
-      교통사고
+    <div className="w-10/12 h-full flex flex-col  justify-start items-start">
+      <div className="w-full flex justify-between items-center my-10 ">
+        <div className="w-1/4 justify-start items-center">교통사고 대분류</div>
+        <div className="w-3/4 flex">
+          {c1Tag}
+        </div>
+      </div>
+
     </div>
   )
 }

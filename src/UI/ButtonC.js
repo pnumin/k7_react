@@ -13,6 +13,7 @@ export default function ButtonC({caption, bcolor, handleClick}) {
   return (
     <button className={`inline-flex px-10 py-3 
                         rounded-md
+                        mx-2
                         justify-center items-center
                         text-white font-bold
                         ${colorB[bcolor]}
