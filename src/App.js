@@ -6,7 +6,8 @@ import { RiHomeHeartFill } from "react-icons/ri";
 // import MyList from './04/MyList';
 // import Lotto from './05/Lotto';
 // import BoxOffice from './06/BoxOffice';
-import FoodMain from  './07/FoodMain' ;
+// import FoodMain from  './07/FoodMain' ;
+import TrafficMain from './08/TrafficMain';
 
 function App() {
   return (
@@ -24,7 +25,8 @@ function App() {
         {/* <MyList /> */}
         {/* <Lotto /> */}
         {/* <BoxOffice /> */}
-        <FoodMain />
+        {/* <FoodMain /> */}
+        <TrafficMain />
       </main>
       <footer className='flex justify-center items-center h-20 bg-black text-slate-100'>
       ⓒ Kim Kyung Min , K-digital-7
