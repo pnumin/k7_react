@@ -5,7 +5,23 @@ export default function TrafficMain() {
   const [tdata, setTdata] = useState([]) ;    //전체 fetch데이터
   const [c1, setC1] = useState() ;            //대분류
   const [c1Tag, setC1Tag] = useState() ;      //대분류 버튼
-  
+  const [c1Sel, setC1Sel] = useState() ;      //선택된 대분류
+
+  const [c2, setC2] = useState() ;            //중분류
+  const [c2Tag, setC2Tag] = useState() ;      //중분류 버튼
+  const [c2Sel, setC2Sel] = useState() ;      //선택된 중분류
+
+
+  //대분류를 선택할 때 실행
+  const handleC1Select = (item) => {
+    setC1Sel(item) ;
+  }
+
+  //중분류를 선택할 때 실행
+  const handleC2Select = (item) => {
+    setC2Sel(item) ;
+  }
+
   //fetch 함수로 데이터 가져오기
   const getFetchData = (url) => {
     fetch(url)
@@ -41,10 +57,37 @@ export default function TrafficMain() {
     console.log('c1=', c1) ;
     let tm = c1.map((item) => <ButtonC caption = {item}
                                        key={item}
-                                       bcolor = 'blue'
-                                       handleClick = {() => {}} />)
+                                       bcolor = {'blue'}
+                                       handleClick = {() => handleC1Select(item)} />)
     setC1Tag(tm) ;
   }, [c1]);
+
+  //대분류 선택  => 중분류
+  useEffect(() => {
+    console.log("대분류선택 :", c1Sel)
+    let tm = tdata.filter(item => item['사고유형_대분류'] === c1Sel) 
+                  .map(item => item['사고유형_중분류']) ;
+    setC2(tm) ;
+  } , [c1Sel]) ;
+
+  //중분류가 만들어졌을 때
+  useEffect(() => {
+    if (!c2) return ;
+    console.log("c2", c2)
+    
+    let tm = c2.map((item) => <ButtonC caption = {item}
+                                       key={item}
+                                       bcolor = {'blue'}
+                                       handleClick = {() => handleC2Select(item)} />)
+    setC2Tag(tm) ;
+  }, [c2]);
+
+  //중분류 선택  => 상세정보
+  useEffect(() => {
+    console.log("대분류선택 :", c1Sel)
+    console.log("중분류선택 :", c2Sel)
+    
+  } , [c2Sel]) ;
 
   return (
     <div className="w-10/12 h-full flex flex-col  justify-start items-start">
@@ -54,7 +97,12 @@ export default function TrafficMain() {
           {c1Tag}
         </div>
       </div>
-
+      <div className="w-full flex justify-between items-center my-10 ">
+        <div className="w-1/4 justify-start items-center">교통사고 중분류</div>
+        <div className="w-3/4 flex">
+          {c2Tag}
+        </div>
+      </div>
     </div>
   )
 }
