@@ -11,6 +11,7 @@ export default function TrafficMain() {
   const [c2Tag, setC2Tag] = useState() ;      //중분류 버튼
   const [c2Sel, setC2Sel] = useState() ;      //선택된 중분류
 
+  const [info, setInfo] = useState() ;         //선택된 상세자료
 
   //대분류를 선택할 때 실행
   const handleC1Select = (item) => {
@@ -86,6 +87,12 @@ export default function TrafficMain() {
   useEffect(() => {
     console.log("대분류선택 :", c1Sel)
     console.log("중분류선택 :", c2Sel)
+
+    let tm = tdata.filter(item =>  item['사고유형_대분류'] === c1Sel &&
+                                    item['사고유형_중분류'] === c2Sel )
+    tm = tm[0] ;
+    console.log('상세', tm)
+    setInfo(tm['사고건수'])
     
   } , [c2Sel]) ;
 
@@ -102,6 +109,9 @@ export default function TrafficMain() {
         <div className="w-3/4 flex">
           {c2Tag}
         </div>
+      </div>
+      <div className="w-full flex justify-between items-center my-10 ">
+        사고건수 : {parseInt(info).toLocaleString()}
       </div>
     </div>
   )
