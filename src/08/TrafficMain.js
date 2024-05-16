@@ -85,6 +85,7 @@ export default function TrafficMain() {
 
   //중분류 선택  => 상세정보
   useEffect(() => {
+    if (!c1Sel || !c2Sel) return ;
     console.log("대분류선택 :", c1Sel)
     console.log("중분류선택 :", c2Sel)
 
@@ -111,7 +112,7 @@ export default function TrafficMain() {
         </div>
       </div>
       <div className="w-full flex justify-between items-center my-10 ">
-        사고건수 : {parseInt(info).toLocaleString()}
+        사고건수 : {info && parseInt(info).toLocaleString()}
       </div>
     </div>
   )
