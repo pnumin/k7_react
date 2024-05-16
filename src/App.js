@@ -8,7 +8,8 @@ import { RiHomeHeartFill } from "react-icons/ri";
 // import BoxOffice from './06/BoxOffice';
 // import FoodMain from  './07/FoodMain' ;
 // import TrafficMain from './08/TrafficMain'; 
-import TrafficNav from './08_1/TrafficNav';
+// import TrafficNav from './08_1/TrafficNav';
+import Traffic from './08_1/Traffic';
 
 function App() {
   return (
@@ -28,7 +29,8 @@ function App() {
         {/* <BoxOffice /> */}
         {/* <FoodMain /> */}
         {/* <TrafficMain /> */}
-        {<TrafficNav />}
+        {/* {<TrafficNav />} */}
+        <Traffic />
       </main>
       <footer className='flex justify-center items-center h-20 bg-black text-slate-100'>
       ⓒ Kim Kyung Min , K-digital-7
