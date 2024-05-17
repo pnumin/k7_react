@@ -10,7 +10,8 @@ import { RiHomeHeartFill } from "react-icons/ri";
 // import TrafficMain from './08/TrafficMain'; 
 // import TrafficNav from './08_1/TrafficNav';
 // import Traffic from './08_1/Traffic';
-import MyRef from './09/MyRef';
+// import MyRef from './09/MyRef';
+import Gallery from './10/Gallery';
 
 function App() {
   return (
@@ -32,7 +33,8 @@ function App() {
         {/* <TrafficMain /> */}
         {/* <TrafficNav /> */}
         {/* <Traffic /> */}
-        <MyRef />
+        {/* <MyRef /> */}
+        <Gallery />
       </main>
       <footer className='flex justify-center items-center h-20 bg-black text-slate-100'>
         ⓒ Kim Kyung Min , K-digital-7
