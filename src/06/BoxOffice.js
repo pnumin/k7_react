@@ -13,8 +13,13 @@ export default function BoxOffice() {
   const getFetchData = (url) => {
     fetch(url)
       .then(resp => resp.json())
-      .then(data => setDailyList(data.boxOfficeResult.dailyBoxOfficeList))
+      .then(data => {
+        console.log(data)
+        setDailyList(data.boxOfficeResult.dailyBoxOfficeList)
+      })
       .catch(err => console.log(err))
+
+      
   }
 
   //날짜가 선택 되었을 때 
