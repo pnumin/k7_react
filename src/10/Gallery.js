@@ -25,8 +25,22 @@ export default function Gallery() {
     
       getFetchData(url) ;
   }
-  const handleClear = () => {
-    
+  const handleClear = (e) => {
+    e.preventDefault();
+    setGdata('') ;
+    setCards('') ;
+    inRef.current.value = '' ;
+    inRef.current.focus();
+  }
+
+  const handleKeyCheck = (e) => {
+    if (e.key === 'Enter') {
+      console.log("엔터")
+      handleOk(e) ;
+    }
+    else {
+      console.log(e.key)
+    }
   }
 
   // data fetch
@@ -70,6 +84,7 @@ export default function Gallery() {
         <div>
         <input type="text" id="txt1" 
                ref={inRef}
+               onKeyDown = {handleKeyCheck}
                className="bg-gray-50 border
                           border-gray-300
                           text-gray-900 
