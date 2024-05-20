@@ -11,7 +11,8 @@ import { RiHomeHeartFill } from "react-icons/ri";
 // import TrafficNav from './08_1/TrafficNav';
 // import Traffic from './08_1/Traffic';
 // import MyRef from './09/MyRef';
-import Gallery from './10/Gallery';
+// import Gallery from './10/Gallery';
+import Festival from './11/Festival' ;
 
 function App() {
   return (
@@ -34,7 +35,8 @@ function App() {
         {/* <TrafficNav /> */}
         {/* <Traffic /> */}
         {/* <MyRef /> */}
-        <Gallery />
+        {/* <Gallery /> */}
+        <Festival />
       </main>
       <footer className='flex justify-center items-center h-20 bg-black text-slate-100'>
         ⓒ Kim Kyung Min , K-digital-7
