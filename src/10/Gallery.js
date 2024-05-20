@@ -1,10 +1,33 @@
 import GalleryCard from "./GalleryCard" ;
+import ButtonC from "../UI/ButtonC";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function Gallery() {
   const [gdata, setGdata] = useState() ;
   const [cards, setCards] = useState() ;
+  const inRef = useRef() ;
+
+  //사용자 정의함수
+  const handleOk = (e) => {
+      e.preventDefault();
+      console.log(inRef.current.value) ;
+      if (inRef.current.value == '') {
+        alert('키워드를 입력하세요.') ;
+        inRef.current.focus();
+        return ;
+      }
+
+      let url = `https://apis.data.go.kr/B551011/PhotoGalleryService1/gallerySearchList1?`;
+      url = url +  `serviceKey=${process.env.REACT_APP_API_KEY}`;
+      url = url +  `&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest&arrange=A`;
+      url = url +  `&keyword=${encodeURI(inRef.current.value)}&_type=json`;
+    
+      getFetchData(url) ;
+  }
+  const handleClear = () => {
+    
+  }
 
   // data fetch
   const getFetchData = (url) => {
@@ -20,9 +43,7 @@ export default function Gallery() {
   }
   //컴포넌트 생성시
   useEffect(()=>{
-    let url = `https://apis.data.go.kr/B551011/PhotoGalleryService1/gallerySearchList1?serviceKey=${process.env.REACT_APP_API_KEY}&numOfRows=10&pageNo=1&MobileOS=ETC&MobileApp=AppTest&arrange=A&keyword=%ED%83%9C%EC%A2%85%EB%8C%80&_type=json`;
     
-    getFetchData(url) ;
   }, []);
 
   //gdata 만들어질때
@@ -44,9 +65,30 @@ export default function Gallery() {
 
   return (
     <div className="w-full h-full flex flex-col justify-start items-start"> 
-      <div className="w-full flex justify-center items-center my-5 h-40">
-        입력
+      <form className="w-full flex justify-center items-center">
+      <div className="w-4/5 grid grid-cols-1 md:grid-cols-2 my-5">
+        <div>
+        <input type="text" id="txt1" 
+               ref={inRef}
+               className="bg-gray-50 border
+                          border-gray-300
+                          text-gray-900 
+                          text-sm 
+                          rounded-lg
+                          focus:ring-blue-500
+                          focus:border-blue-500 
+                          block w-full p-2.5" />
+        </div>
+        <div>
+          <ButtonC caption = "확인"
+                    bcolor = "blue"
+                    handleClick = {handleOk} />
+          <ButtonC caption = "취소"
+                    bcolor = "blue"
+                    handleClick = {handleClear} />
+        </div>
       </div>
+      </form>
       <div className="w-full grid grid-cols-1 
                     md:grid-cols-2 lg:grid-cols-3 
                     gap-2">
