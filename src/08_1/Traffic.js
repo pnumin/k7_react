@@ -77,7 +77,7 @@ export default function Traffic() {
                                 </div>
                                 <div className="flex justify-center items-center
                                                 h-10
-                                                 bg-lime-100  bg-lime-900 font-bold">
+                                                 bg-lime-100 font-bold">
                                   {parseInt(tm[item]).toLocaleString()}
                                 </div>
                              </div>

@@ -1,9 +1,11 @@
 import { useEffect, useState, useRef } from "react";
 import TailSelect from "../UI/TailSelect";
+import GalleryCard from "../10/GalleryCard";
 
 export default function Festival() {
   const [tdata, setTdata] = useState();       //부산 축제 정보
   const [ops, setOps] = useState();           //축제 구정보
+  const [cards, setCards] = useState() ;
   const selRef = useRef() ;                   //옵션 선택
 
   // data fetch
@@ -22,7 +24,15 @@ export default function Festival() {
   //구선택
   const handleGuSelect = () => {
     console.log(selRef.current.value)
-
+    let tm = tdata.filter(item => item.GUGUN_NM === selRef.current.value) 
+                  .map(item => <GalleryCard key = {item.UC_SEQ} 
+                                    imgUrl = {item.MAIN_IMG_THUMB}
+                                    title = {item.MAIN_TITLE}
+                                    content = {item.USAGE_DAY_WEEK_AND_TIME}
+                                    spTag = {item.ADDR1} 
+        />);
+    console.log(tm)
+    setCards(tm)                  
   }
 
 
@@ -62,8 +72,8 @@ export default function Festival() {
       </form>
       <div className="w-full grid grid-cols-1 
                   md:grid-cols-2 lg:grid-cols-3 
-                  gap-2">
-
+                  gap-2"> 
+      {tdata && cards}
       </div>
     </div>
   )
