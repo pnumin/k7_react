@@ -1,9 +1,7 @@
 export default function TailSelect({id, ops, selRef, initText, handleChange }) {
-  const opTag = ((!ops) ? ops.map( item => 
-                                    <option key = {item}
+  const opTag = ops.map( item => <option key = {item}
                                             value= {item}>{item}</option>  
-                                 )  
-                        : [] ) ;
+                            ) ;
 
   return (
     <select id={id}
