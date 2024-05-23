@@ -23,6 +23,13 @@ export default function FrcstList() {
   //ref 변수
   const selRef = useRef();
 
+  //code 변수
+  const sky = {"1" : "☀️(맑음)", "3": "☁️(구름많음)", "4":"🌥️(흐림)"} ;
+  const pty = {"0" : "없음" , "1" : "비", "2": "비/눈",
+               "3" : "눈", "4" : "소나기" , "5" : "빗방울", 
+               "6" : "빗방울눈날림", "7" : "눈날림" }
+ 
+
   //항목선택
   // data fetch
   const getFetchData = (url) => {
@@ -92,7 +99,11 @@ export default function FrcstList() {
                         {`${item["fcstTime"].substring(0, 2)}:${item["fcstTime"].substring(2, 4)}`}
                       </td>
                       <td scope="col" className="px-6 py-3">
-                        {item["fcstValue"]}{selItem["단위"]}
+                        {item["category"] === 'SKY'
+                          ? sky[item["fcstValue"]] 
+                          : item["category"] === 'PTY' 
+                            ? pty[item["fcstValue"]]
+                            : `${item["fcstValue"]} ${selItem["단위"]}`} 
                       </td>
                     </tr>
 
@@ -108,7 +119,7 @@ export default function FrcstList() {
                     grid grid-cols-1 md:grid-cols-2 p-2 gap-2">
         <h1 className="w-full text-2xl font-bold 
                      flex justify-center items-center m-5">
-          {gubun}예보 ( <div className="text-blue-800">{area} {dt}</div> )
+          {gubun}예보 ( <div className="text-blue-800">{area}</div> )
         </h1>
         <div className="flex justify-center items-center m-5">
           <TailSelect id="sel"
